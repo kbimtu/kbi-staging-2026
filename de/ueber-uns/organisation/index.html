@@ -434,9 +434,10 @@ details.more .tbl-wrap { border: 0; }
 .ohero__skip { font: 500 13px/1.4 var(--font-mono); }
 .ohero__plate { position: relative; min-width: 0; min-height: 0; border: 1px solid var(--rule-strong); }
 .ohero__plate canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-@media (max-width: 900px) {
-  .ohero__stage { grid-template-columns: 1fr; grid-template-rows: auto auto; align-content: start; gap: var(--space-4); padding-block: var(--space-3); }
-  .ohero__plate { order: -1; aspect-ratio: 1000 / 760; max-width: 100%; }
+@media (max-width: 1024px) { /* phones and tablets up to a portrait iPad Pro 12.9" */
+  .ohero__stage { grid-template-columns: 1fr; grid-template-rows: auto auto; align-content: start; gap: var(--space-4); padding-block: var(--space-3); max-height: none; }
+  /* The plate never takes more height than the screen leaves after the text (about 360px) */
+  .ohero__plate { order: -1; aspect-ratio: 1000 / 760; width: 100%; max-width: max(260px, calc((100vh - var(--hdr, 65px) - 380px) * 1000 / 760)); justify-self: center; }
   .ohero__copy { gap: var(--space-2); }
   .ohero__copy .crumbs, .ohero__copy .phero__eyebrow { display: none; }
   .ohero h1 { font-size: 34px; }
