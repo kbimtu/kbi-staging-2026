@@ -1,20 +1,14 @@
 <!doctype html>
-<html lang="de">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>KBI :: An das KBI spenden :: Donate to KBI</title>
-<meta property="og:title" content="KBI :: An das KBI spenden :: Donate to KBI">
+<title>KBI :: Page not found :: Seite nicht gefunden</title>
+<meta property="og:title" content="KBI :: Page not found :: Seite nicht gefunden">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.kb.institute/de/spenden">
-<meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vF4pMrUP2HW5MTseovRtn3z2bsyyAox63cfgJUFDFZICwSPOdNyygpqvj5WVVBfYU4zW3ByQyz5Imp4WURavAUhf05QiqXrge-YdKHrmv6AgdNXRPOuTDfY3xQ6Osl6dZmr1aJHdVXWITmlYs3-y0dVYdLENn1GFTq9hyzv3VSCC_aDB9S6IY9A39jBsY=w16383">
-<link rel="canonical" href="https://www.kb.institute/de/spenden">
-<link rel="alternate" hreflang="en" href="https://www.kb.institute/donate">
-<link rel="alternate" hreflang="de" href="https://www.kb.institute/de/spenden">
-<link rel="alternate" hreflang="x-default" href="https://www.kb.institute/donate">
-<link rel="icon" type="image/png" sizes="64x64" href="../../assets/favicon-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../assets/touch-180.png">
+<meta property="og:locale" content="en_CA">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/touch-180.png">
 <style>
 :root {
   --ground: #003153;
@@ -394,9 +388,6 @@ details.more .tbl-wrap { border: 0; }
 .lang { display: inline-flex; border: 1px solid var(--rule-strong); }
 .kbi-header nav.kbi-lang { display: inline-flex; gap: 0; flex-wrap: nowrap; }
 .kbi-header nav.kbi-lang a { padding: 7px 10px; border-bottom: 0; }
-.review { margin: 0; padding: var(--space-4) var(--space-5); border: 1px dashed var(--gold); color: var(--gold); font: 500 13px/1.5 var(--font-mono); }
-.review::before { content: "Review note · "; font-weight: 700; }
-
 /* Shared footer */
 /* Shared footer styles */
 .footer { background: var(--ground-deep); border-top: 1px solid var(--rule-strong); }
@@ -414,52 +405,69 @@ details.more .tbl-wrap { border: 0; }
 .footer .wrap { box-sizing: border-box; }
 .footer ul.footer__cols { grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, max-content); column-gap: var(--space-6); }
 @media (max-width: 480px) { .footer .wrap > div:has(.footer__cols) { grid-column: 1 / -1; } }
+/* Layout safety: long words and labels never push a page wider than the screen */
+h1, h2, h3, .phero__lead, .stitle p, .h3card p { overflow-wrap: break-word; }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) .phero__lead, :lang(de) .stitle p, :lang(de) .h3card p { hyphens: auto; }
+.stitle__eyebrow > .kbi-label { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+.stitle__sheet { white-space: nowrap; }
+.h3card__eye > span:first-child { white-space: normal; min-width: 0; }
+.items__short, .items h3 { overflow-wrap: anywhere; }
+.section > .wrap { grid-template-columns: minmax(0, 1fr); }
+.stitle { grid-template-columns: minmax(0, 1fr); }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) dt { overflow-wrap: anywhere; }
+@media (max-width: 480px) { .items li { padding: var(--space-4); } }
 </style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#003153">
+<meta property="og:image" content="https://www.kb.institute/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
 </head>
 <body>
 <div class="kbi" id="top">
-<a class="skip" href="#main">Zum Inhalt springen</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="kbi-header">
   <div class="wrap">
-    <a class="kbi-header__brand" href="../index.html" aria-label="Königsberger Brückeninstitut, Startseite">
-      <img src="../../assets/mark-light-160.png" alt="">
-      <span class="kbi-header__wordmark">Königsberger<br>Brückeninstitut</span>
+    <a class="kbi-header__brand" href="/index.html" aria-label="Königsberger Bridges Institute, home">
+      <img src="/assets/mark-light-160.png" alt="">
+      <span class="kbi-header__wordmark">Königsberger<br>Bridges Institute</span>
     </a>
-    <button class="kbi-menu" type="button" aria-expanded="false" aria-controls="kbiMain" aria-label="Menü"><i></i><i></i><i></i></button>
-    <nav class="kbi-main" id="kbiMain" aria-label="Hauptmenü">
-      <a href="../ueber-uns/index.html" data-nav="about">Über uns</a>
-      <a href="../olympiaden/index.html" data-nav="olympiads">Olympiaden</a>
-      <a href="../gemeinschaft/index.html" data-nav="community">Gemeinschaft</a>
-      <a href="../kontakt/index.html" data-nav="contact">Kontakt</a>
+    <button class="kbi-menu" type="button" aria-expanded="false" aria-controls="kbiMain" aria-label="Menu"><i></i><i></i><i></i></button>
+    <nav class="kbi-main" id="kbiMain" aria-label="Main">
+      <a href="/about/index.html" data-nav="about">About</a>
+      <a href="/olympiads/index.html" data-nav="olympiads">Olympiads</a>
+      <a href="/community/index.html" data-nav="community">Community</a>
+      <a href="/contact/" data-nav="contact">Contact</a>
     </nav>
-    <nav class="kbi-lang" aria-label="Sprache"><a href="../../donate/index.html" hreflang="en" lang="en">EN</a><a href="index.html" hreflang="de" lang="de" aria-current="true">DE</a></nav>
+    <nav class="kbi-lang" aria-label="Language"><a href="/contact/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/de/kontakt/index.html" hreflang="de" lang="de">DE</a></nav>
   </div>
 </header>
-<div class="draft-note" id="deNote" ><div class="wrap">Deutsche Fassung: Entwurf, noch nicht offiziell freigegeben.</div></div>
+<div class="draft-note" id="deNote" hidden><div class="wrap">Deutsche Fassung: Entwurf, noch nicht offiziell freigegeben.</div></div>
 
 <main id="main">
 <section class="phero" aria-labelledby="pageTitle">
   <div class="wrap">
     <div class="phero__text">
-      <nav class="crumbs" aria-label="Brotkrumen"><ol>
-        <li><a href="../index.html">Start</a></li>
-        <li aria-current="page">An das KBI spenden</li>
-      </ol></nav>
-      <h1 id="pageTitle">An das KBI spenden</h1>
-      <p class="phero__lead">Diese Seite wird gerade im neuen Stil gezeichnet.</p>
-      <p class="review">Placeholder. Built in a later review round.</p>
+      <h1 id="pageTitle">Page not found</h1>
+      <p class="phero__lead">This page has moved or does not exist. Try the homepage, or write to us and we will point you the right way.</p>
+      <p class="phero__lead" lang="de">Seite nicht gefunden. Diese Seite wurde verschoben oder existiert nicht. Starten Sie auf der Startseite oder schreiben Sie uns, dann finden wir den richtigen Weg.</p>
     </div>
   </div>
 </section>
 <section class="cta" aria-labelledby="ctaTitle">
   <div class="wrap">
     <div>
-      <h2 id="ctaTitle">Bauen Sie mit uns die nächste Brücke.</h2>
-      <p>Schüler, Lehrkräfte, Fachleute und Partner sind willkommen.</p>
+      <h2 id="ctaTitle">Back on track.</h2>
+      <p lang="de"><strong>Zurück auf Kurs.</strong> Zur Startseite oder zum richtigen Team.</p>
+      <p>Go to the homepage, or contact the right team.</p>
     </div>
     <div class="cta__actions">
-      <a class="kbi-btn kbi-btn--gold" href="../bewerben/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
-      <a class="kbi-btn kbi-btn--outline" href="../kontakt/index.html">Partner werden</a>
+      <a class="kbi-btn kbi-btn--gold" href="/"><span>Homepage</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
+      <a class="kbi-btn kbi-btn--outline" href="/contact/">Contact</a>
     </div>
   </div>
 </section>
@@ -469,31 +477,31 @@ details.more .tbl-wrap { border: 0; }
   <canvas class="footer__skyline" id="skyline" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="footer__brand">
-      <img src="../../assets/mark-light-160.png" alt="KBI">
-      <span>Königsberger Brückeninstitut</span>
+      <img src="/assets/mark-light-160.png" alt="KBI">
+      <span>Königsberger Bridges Institute</span>
     </div>
     <div>
-      <h3 class="kbi-label">Olympiaden</h3>
+      <h3 class="kbi-label">Olympiads</h3>
       <ul><li><a href="https://2026.ibcol.org">IBCOL</a></li><li><a href="https://2026.idsol.org">IDSOL</a></li><li><a href="https://2026.iqcol.org">IQCOL</a></li></ul>
     </div>
     <div>
-      <h3 class="kbi-label">Institut</h3>
+      <h3 class="kbi-label">Institute</h3>
       <ul class="footer__cols">
-        <li><a href="../ueber-uns/inspiration/index.html">Inspiration</a></li>
-        <li><a href="../ueber-uns/geschichte/index.html">Geschichte</a></li>
-        <li><a href="../ueber-uns/organisation/index.html">Organisation</a></li>
-        <li><a href="../gemeinschaft/team/index.html">Team</a></li>
-        <li><a href="../ueber-uns/markenkit/index.html">Markenkit</a></li>
-        <li><a href="../kontakt/index.html">Kontakt</a></li>
+        <li><a href="/about/inspiration/index.html">Inspiration</a></li>
+        <li><a href="/about/history/index.html">History</a></li>
+        <li><a href="/about/organization/index.html">Organization</a></li>
+        <li><a href="/community/team/index.html">Team</a></li>
+        <li><a href="/about/brand-kit/index.html">Brand kit</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
     <div>
-      <h3 class="kbi-label">Folgen</h3>
+      <h3 class="kbi-label">Follow</h3>
       <ul><li><a href="https://www.linkedin.com/company/kbi-eu/">LinkedIn</a></li><li><a href="https://www.instagram.com/kbi.eu/">Instagram</a></li></ul>
     </div>
     <div class="footer__legal">
       <span>© 2026 Königsberger Brückeninstitut MTÜ</span>
-      <a href="../ueber-uns/impressum/index.html">Impressum</a>
+      <a href="/about/impressum/index.html">Impressum</a>
     </div>
   </div>
 </footer>

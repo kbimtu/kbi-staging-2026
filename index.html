@@ -1,4 +1,24 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}/* Layout safety: long words and labels never push a page wider than the screen */
+h1, h2, h3, .phero__lead, .stitle p, .h3card p { overflow-wrap: break-word; }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) .phero__lead, :lang(de) .stitle p, :lang(de) .h3card p { hyphens: auto; }
+.stitle__eyebrow > .kbi-label { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+.stitle__sheet { white-space: nowrap; }
+.h3card__eye > span:first-child { white-space: normal; min-width: 0; }
+.items__short, .items h3 { overflow-wrap: anywhere; }
+.section > .wrap { grid-template-columns: minmax(0, 1fr); }
+.stitle { grid-template-columns: minmax(0, 1fr); }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) dt { overflow-wrap: anywhere; }
+@media (max-width: 480px) { .items li { padding: var(--space-4); } }
+</style><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#003153">
+<meta property="og:image" content="https://www.kb.institute/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
 <script>document.documentElement.lang = "en-CA";</script>
 <title>KBI :: Königsberger Bridges Institute :: Königsberger Brückeninstitut MTÜ</title>
 <meta name="description" content="International KBI Olympiads (I2OL) &amp; Emerging Technologies Olympiads (ETO)">
@@ -7,7 +27,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.kb.institute/">
 <meta property="og:locale" content="en_CA">
-<meta property="og:image" content="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vF4pMrUP2HW5MTseovRtn3z2bsyyAox63cfgJUFDFZICwSPOdNyygpqvj5WVVBfYU4zW3ByQyz5Imp4WURavAUhf05QiqXrge-YdKHrmv6AgdNXRPOuTDfY3xQ6Osl6dZmr1aJHdVXWITmlYs3-y0dVYdLENn1GFTq9hyzv3VSCC_aDB9S6IY9A39jBsY=w16383">
 <link rel="canonical" href="https://www.kb.institute/">
 <link rel="alternate" hreflang="en" href="https://www.kb.institute/">
 <link rel="alternate" hreflang="de" href="https://www.kb.institute/de/">
@@ -73,7 +92,7 @@
    "eventStatus": "https://schema.org/EventScheduled",
    "location": {
     "@type": "Place",
-    "name": "Venue to be announced",
+    "name": "Hong Kong and Shenzhen",
     "address": {
      "@type": "PostalAddress",
      "addressRegion": "Hong Kong",
@@ -87,15 +106,15 @@
   {
    "@type": "Event",
    "name": "ETO Western Conference 2027",
-   "startDate": "2027-11-12",
-   "endDate": "2027-11-14",
+   "startDate": "2027-10-16",
+   "endDate": "2027-10-17",
    "eventStatus": "https://schema.org/EventScheduled",
    "location": {
     "@type": "Place",
-    "name": "Venue to be announced",
+    "name": "Oxford and Greater London Area",
     "address": {
      "@type": "PostalAddress",
-     "addressCountry": "NL"
+     "addressCountry": "GB"
     }
    },
    "organizer": {
@@ -161,10 +180,6 @@
 .lang { display: inline-flex; border: 1px solid var(--rule-strong); }
 .kbi-header nav.kbi-lang { display: inline-flex; gap: 0; flex-wrap: nowrap; }
 .kbi-header nav.kbi-lang a { padding: 7px 10px; border-bottom: 0; }
-.review { margin: 0; padding: var(--space-4) var(--space-5); border: 1px dashed var(--gold); color: var(--gold); font: 500 13px/1.5 var(--font-mono); }
-.review::before { content: "Review note · "; font-weight: 700; }
-
-
 html { scroll-behavior: smooth; background: var(--ground); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; color: var(--line); font-family: var(--font-sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
@@ -261,7 +276,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .h3card::before, .h3card::after { content: ""; position: absolute; width: 14px; height: 14px; border-color: var(--cyan); border-style: solid; }
 .h3card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
 .h3card::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-.h3card__eye { color: var(--cyan); display: flex; justify-content: space-between; gap: 12px; }
+.h3card__eye { color: var(--cyan); display: flex; justify-content: space-between; gap: 12px; white-space: nowrap; }
 .h3card__eye.gold { color: var(--gold); }
 .h3card h1, .h3card h2 { margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--line); text-wrap: balance; }
 .h3card h1 { font-size: clamp(40px, 5.4vw, 66px); line-height: .96; }
@@ -285,7 +300,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .h3d__hudn { font-size: 22px; }
   .h3d__frame::before { display: none; }
 }
-.h3step--last { min-height: 320vh; align-items: flex-start; padding-top: 22vh; }
+.h3step--last { min-height: 160vh; align-items: flex-start; padding-top: 22vh; }
 .h3step--last .h3card { position: sticky; top: calc(var(--hdr, 65px) + 16vh); }
 @media (max-width: 760px) {
   /* Last card enters like the others (resting at the bottom of the screen), then stays while the walk plays */
@@ -302,7 +317,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 720px) { .section { padding-block: var(--space-8); } }
 .section > .wrap { display: grid; gap: var(--space-7); }
 .stitle { display: grid; gap: var(--space-3); }
-.stitle__eyebrow { display: flex; align-items: center; gap: var(--space-3); color: var(--cyan); font: 500 12px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.stitle__eyebrow { display: flex; align-items: center; gap: var(--space-3); white-space: nowrap; color: var(--cyan); font: 500 12px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .stitle__eyebrow::after { content: ""; flex: 1; border-top: 1px dashed var(--rule-strong); min-width: 24px; }
 .stitle__sheet { color: var(--line-muted); order: 3; }
 .stitle h2 { margin: 0; font: 600 clamp(34px, 5.4vw, 58px)/1.0 var(--font-display); color: var(--line); text-wrap: balance; max-width: 22ch; }
@@ -525,7 +540,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <h2>Now the walk exists.</h2>
       <p>One walk crosses every bridge exactly once. Build the next bridge with us for a better tomorrow.</p>
       <div class="h3card__cta">
-        <a class="kbi-btn kbi-btn--gold" href="apply/index.html"><span>Apply to join KBI</span> <span aria-hidden="true">→</span></a>
+        <a class="kbi-btn kbi-btn--gold" href="contact/index.html"><span>Apply to join KBI</span> <span aria-hidden="true">→</span></a>
         <a class="h3card__link" href="about/inspiration/index.html">The Königsberger Bridges Problem: try it yourself →</a>
       </div>
     </div></div>
@@ -593,7 +608,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <div class="kbi-plate__foot"><span class="kbi-tag">DSAI</span><a href="https://2026.idsol.org">IDSOL 2026 →</a></div>
       </article>
       <article class="kbi-plate reg">
-        <div class="kbi-plate__top"><span class="kbi-plate__code">IQCOL</span><span class="kbi-plate__since">2026 edition</span></div>
+        <div class="kbi-plate__top"><span class="kbi-plate__code">IQCOL</span><span class="kbi-plate__since">since 2026</span></div>
         <h3 class="kbi-plate__title">International Quantum Computing Olympiad</h3>
         <p class="kbi-plate__body">Quantum Computing &amp; Information Theory.</p>
         <div class="kbi-plate__foot"><span class="kbi-tag">QCIT</span><a href="https://2026.iqcol.org">IQCOL 2026 →</a></div>
@@ -636,7 +651,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <section class="section" id="events" aria-labelledby="evTitle">
   <div class="wrap">
     <header class="stitle">
-      <div class="stitle__eyebrow"><span class="kbi-label">Emerging Technologies Olympiads</span><span class="stitle__sheet">Blatt 5 / 7</span></div>
+      <div class="stitle__eyebrow"><span class="kbi-label">Emerging Tech Olympiads</span><span class="stitle__sheet">Blatt 5 / 7</span></div>
       <h2 id="evTitle">Two conferences. Open to the world.</h2>
     </header>
     <ol class="kbi-events">
@@ -663,8 +678,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     </header>
     <div class="emblems" id="emblems"></div>
     <div class="org-cta" id="orgCta">
-      <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">VIII</span><span><a class="kbi-btn kbi-btn--gold" href="apply/index.html"><span>Apply to Volunteer</span> <span aria-hidden="true">→</span></a></span></div>
-      <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">IX</span><span><a class="kbi-btn kbi-btn--outline" href="donate/index.html"><span>Donate to KBI</span> <span aria-hidden="true">→</span></a></span></div>
+      <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">VIII</span><span><a class="kbi-btn kbi-btn--gold" href="contact/index.html"><span>Apply to Volunteer</span> <span aria-hidden="true">→</span></a></span></div>
+      <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">IX</span><span><a class="kbi-btn kbi-btn--outline" href="contact/index.html"><span>Donate to KBI</span> <span aria-hidden="true">→</span></a></span></div>
     </div>
   </div>
 </section>
@@ -691,7 +706,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <p>Students, educators, practitioners, and partners are welcome.</p>
     </div>
     <div class="cta__actions">
-      <a class="kbi-btn kbi-btn--gold" href="apply/index.html"><span>Apply to join KBI</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
+      <a class="kbi-btn kbi-btn--gold" href="contact/index.html"><span>Apply to join KBI</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
       <a class="kbi-btn kbi-btn--outline" href="contact/index.html">Partner with us</a>
     </div>
   </div>
@@ -1715,4 +1730,5 @@ resize(); requestAnimationFrame(frame);
   small.addEventListener('change', function () { set(false); fit(); });
 })();
 </script>
+</body></html>
 </body></html>

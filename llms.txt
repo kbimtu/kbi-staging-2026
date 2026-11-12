@@ -1,0 +1,37 @@
+# Königsberger Bridges Institute (KBI)
+
+> KBI builds communities of competent, curious, kind, and fun people. We organize emerging-technology olympiads, competency certifications, and conferences. KBI is a non-profit association (Königsberger Brückeninstitut MTÜ) founded in 2017 and based in Estonia.
+
+Vision: prepare humanity for unknown unknowns through continuous innovation.
+Mission: build communities of competent, curious, kind, and fun people, where we uplift each other and our society towards our vision.
+Name: the institute takes its name from Euler's 1736 solution to the Königsberger Bridges Problem, a practical STEM answer to a real-world question.
+We bridge: tech with design thinking; ambitions to actions; cultural and social divides; academia and industry.
+Annual global impact: 10,000 global outreach, 4,000 participants, 700 tech projects, 50 countries and territories.
+
+## Olympiads
+- International Blockchain Olympiad (IBCOL), since 2017: https://2026.ibcol.org
+- International Data Science Olympiad (IDSOL), since 2020: https://2026.idsol.org
+- International Quantum Computing Olympiad (IQCOL), since 2026: https://2026.iqcol.org
+- Overview: https://www.kb.institute/olympiads/
+
+## Conferences (Emerging Technologies Olympiads, ETO)
+- ETO Western Conference 2027: 16–17 October 2027, Oxford and Greater London Area, UK (hosted by KBI West)
+- ETO Eastern Conference 2027: 28–29 October 2027, Hong Kong and Shenzhen (hosted by KBI East)
+
+## Key pages
+- Home: https://www.kb.institute/
+- About: https://www.kb.institute/about/
+- The Königsberger Bridges Problem: https://www.kb.institute/about/inspiration/
+- History: https://www.kb.institute/about/history/
+- Organization (seven directorates): https://www.kb.institute/about/organization/
+- Testimonials: https://www.kb.institute/about/testimonials/
+- Team: https://www.kb.institute/community/team/
+- Community: https://www.kb.institute/community/
+- Contact: https://www.kb.institute/contact/
+- Legal notice: https://www.kb.institute/about/impressum/
+
+## Contact
+- General enquiries: info@kb.institute
+- Career enquiries: talent@kb.institute
+- Media enquiries: pr@kb.institute
+- Olympiads enquiries: olympiads@kb.institute

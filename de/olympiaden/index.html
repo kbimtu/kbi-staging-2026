@@ -8,7 +8,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.kb.institute/de/olympiaden">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vF4pMrUP2HW5MTseovRtn3z2bsyyAox63cfgJUFDFZICwSPOdNyygpqvj5WVVBfYU4zW3ByQyz5Imp4WURavAUhf05QiqXrge-YdKHrmv6AgdNXRPOuTDfY3xQ6Osl6dZmr1aJHdVXWITmlYs3-y0dVYdLENn1GFTq9hyzv3VSCC_aDB9S6IY9A39jBsY=w16383">
 <link rel="canonical" href="https://www.kb.institute/de/olympiaden">
 <link rel="alternate" hreflang="en" href="https://www.kb.institute/olympiads">
 <link rel="alternate" hreflang="de" href="https://www.kb.institute/de/olympiaden">
@@ -394,9 +393,6 @@ details.more .tbl-wrap { border: 0; }
 .lang { display: inline-flex; border: 1px solid var(--rule-strong); }
 .kbi-header nav.kbi-lang { display: inline-flex; gap: 0; flex-wrap: nowrap; }
 .kbi-header nav.kbi-lang a { padding: 7px 10px; border-bottom: 0; }
-.review { margin: 0; padding: var(--space-4) var(--space-5); border: 1px dashed var(--gold); color: var(--gold); font: 500 13px/1.5 var(--font-mono); }
-.review::before { content: "Review note · "; font-weight: 700; }
-
 /* Shared footer */
 /* Shared footer styles */
 .footer { background: var(--ground-deep); border-top: 1px solid var(--rule-strong); }
@@ -414,7 +410,39 @@ details.more .tbl-wrap { border: 0; }
 .footer .wrap { box-sizing: border-box; }
 .footer ul.footer__cols { grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, max-content); column-gap: var(--space-6); }
 @media (max-width: 480px) { .footer .wrap > div:has(.footer__cols) { grid-column: 1 / -1; } }
+/* Page layout (same as the English page) */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.phero__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.plates--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .plates--2 { grid-template-columns: minmax(0, 1fr); } }
+.stages { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--rule-strong); background: var(--panel); }
+.stages li { padding: var(--space-5); display: grid; gap: var(--space-2); align-content: start; border-right: 1px dashed var(--rule); }
+.stages li:last-child { border-right: 0; }
+.stages b { font: 600 13px/1 var(--font-mono); color: var(--gold); letter-spacing: .1em; }
+.stages h3 { margin: 0; font: 600 24px/1.1 var(--font-display); color: var(--line); }
+.stages p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--line-muted); }
+@media (max-width: 1000px) { .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stages li:nth-child(2) { border-right: 0; } .stages li:nth-child(-n+2) { border-bottom: 1px dashed var(--rule); } }
+@media (max-width: 560px) { .stages { grid-template-columns: minmax(0, 1fr); } .stages li { border-right: 0; border-bottom: 1px dashed var(--rule); } .stages li:last-child { border-bottom: 0; } }
+/* Layout safety: long words and labels never push a page wider than the screen */
+h1, h2, h3, .phero__lead, .stitle p, .h3card p { overflow-wrap: break-word; }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) .phero__lead, :lang(de) .stitle p, :lang(de) .h3card p { hyphens: auto; }
+.stitle__eyebrow > .kbi-label { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+.stitle__sheet { white-space: nowrap; }
+.h3card__eye > span:first-child { white-space: normal; min-width: 0; }
+.items__short, .items h3 { overflow-wrap: anywhere; }
+.section > .wrap { grid-template-columns: minmax(0, 1fr); }
+.stitle { grid-template-columns: minmax(0, 1fr); }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) dt { overflow-wrap: anywhere; }
+@media (max-width: 480px) { .items li { padding: var(--space-4); } }
 </style>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#003153">
+<meta property="og:image" content="https://www.kb.institute/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <div class="kbi" id="top">
@@ -441,14 +469,87 @@ details.more .tbl-wrap { border: 0; }
 <section class="phero" aria-labelledby="pageTitle">
   <div class="wrap">
     <div class="phero__text">
-      <nav class="crumbs" aria-label="Brotkrumen"><ol>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol>
         <li><a href="../index.html">Start</a></li>
         <li aria-current="page">Olympiaden</li>
       </ol></nav>
-      <h1 id="pageTitle">Olympiaden</h1>
-      <p class="phero__lead">Diese Seite wird gerade im neuen Stil gezeichnet.</p>
-      <p class="review">Placeholder. Built in a later review round.</p>
+      <span class="phero__eyebrow kbi-label"><span>Olympiaden</span></span>
+      <h1 id="pageTitle">Gestalten. Bauen. Testen. Lernen.</h1>
+      <p class="phero__lead">KBI veranstaltet drei technische Online-Designwettbewerbe und zwei Präsenzwettbewerbe mit kommerziellem Technologiebezug.</p>
+      <div class="phero__cta"><a class="kbi-btn kbi-btn--gold" href="#i2ol">Die drei Olympiaden (I2OL) <span aria-hidden="true">↓</span></a><a class="kbi-btn kbi-btn--outline" href="#eto">Die gemeinsamen Treffen (ETO) <span aria-hidden="true">↓</span></a></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="i2ol" aria-labelledby="i2olTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">Internationale KBI-Olympiaden (I2OL)</span><span class="stitle__sheet">Blatt 2 / 4</span></div>
+      <h2 id="i2olTitle">Gestalten Sie die Veränderung, die Sie sich für diese Welt wünschen</h2>
+      <p>Jede Olympiade fordert junge Menschen heraus, von Grund auf Lösungen für reale Probleme zu entwerfen und ihre besten Arbeiten Fachleuten aus Wissenschaft und Wirtschaft aus aller Welt vorzustellen.</p>
+    </header>
+    <div class="plates">
+      <article class="kbi-plate reg" id="ibcol">
+        <div class="kbi-plate__top"><span class="kbi-plate__code">IBCOL</span><span class="kbi-plate__since">seit 2017</span></div>
+        <h3 class="kbi-plate__title">Internationale Blockchain-Olympiade</h3>
+        <p class="kbi-plate__body">Junge Menschen wenden Blockchain- und Vertrauenstechnologien auf reale Herausforderungen an, orientiert an den UN-Nachhaltigkeitszielen.</p>
+        <div class="kbi-plate__foot"><span class="kbi-tag">BCTT</span><a href="https://2026.ibcol.org">IBCOL 2026 →</a></div>
+      </article>
+      <article class="kbi-plate reg" id="idsol">
+        <div class="kbi-plate__top"><span class="kbi-plate__code">IDSOL</span><span class="kbi-plate__since">seit 2020</span></div>
+        <h3 class="kbi-plate__title">Internationale Data-Science-Olympiade</h3>
+        <p class="kbi-plate__body">Junge Menschen wenden Data Science und KI auf reale Herausforderungen an, orientiert an den UN-Nachhaltigkeitszielen.</p>
+        <div class="kbi-plate__foot"><span class="kbi-tag">DSAI</span><a href="https://2026.idsol.org">IDSOL 2026 →</a></div>
+      </article>
+      <article class="kbi-plate reg" id="iqcol">
+        <div class="kbi-plate__top"><span class="kbi-plate__code">IQCOL</span><span class="kbi-plate__since">seit 2026</span></div>
+        <h3 class="kbi-plate__title">Internationale Quantencomputing-Olympiade</h3>
+        <p class="kbi-plate__body">Junge Menschen wenden Quantencomputing und Informationstheorie auf reale Herausforderungen an, orientiert an den UN-Nachhaltigkeitszielen.</p>
+        <div class="kbi-plate__foot"><span class="kbi-tag">QCIT</span><a href="https://2026.iqcol.org">IQCOL 2026 →</a></div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="stages" aria-labelledby="stagesTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">So läuft jede Olympiade ab</span><span class="stitle__sheet">Blatt 3 / 4</span></div>
+      <h2 id="stagesTitle">Vier Etappen.</h2>
+    </header>
+    <ol class="stages">
+      <li><b>01</b><h3>Anmeldung</h3><p>Einen Platz sichern und Nachweise prüfen.</p></li>
+      <li><b>02</b><h3>Training</h3><p>Fortgeschrittene Methoden im KBI-Skillsprint erlernen.</p></li>
+      <li><b>03</b><h3>Entwicklung</h3><p>Ein eigenes Projekt entwickeln, das Erkenntnisse in reale Lösungen verwandelt.</p></li>
+      <li><b>04</b><h3>Einreichung</h3><p>Ein internationales Expertengremium prüft jedes Projekt.</p></li>
+    </ol>
+
+  </div>
+</section>
+
+<section class="section" id="eto" aria-labelledby="etoTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">Emerging Technologies Olympiads (ETO)</span><span class="stitle__sheet">Blatt 4 / 4</span></div>
+      <h2 id="etoTitle">Hier treffen sich die besten Projekte.</h2>
+      <p>Die Emerging Technologies Olympiads (ETO) sind die gemeinsamen Wettbewerbe, bei denen hochwertige und qualifizierte Projekte aus den drei KBI-Olympiaden (IBCOL, IDSOL, IQCOL) zusammenkommen, um die vielversprechendsten Projekte für die weitere kommerzielle Entwicklung durch Forschung oder Investitionen zu finden.</p>
+    </header>
+    <div class="plates plates--2">
+      <article class="kbi-plate reg" id="eto-west">
+        <div class="kbi-plate__top"><span class="kbi-plate__code">ETO West</span><span class="kbi-plate__since">16.–17. Okt. 2027</span></div>
+        <h3 class="kbi-plate__title">Ausgerichtet von KBI West · Oxford und London</h3>
+        <p class="kbi-plate__body">Schwerpunkt: technologische Souveränität, etwa Datenschutz, geopolitische Absicherung, Cybersicherheit, Open Source, Freiheit versus Verantwortung sowie globale Governance und Regulierung.</p>
+        <div class="kbi-plate__foot"><span class="tags"><span class="kbi-tag">BCTT</span><span class="kbi-tag">DSAI</span><span class="kbi-tag">QCIT</span></span><a href="https://nl.kb.institute">ETO West →</a></div>
+      </article>
+      <article class="kbi-plate reg" id="eto-east">
+        <div class="kbi-plate__top"><span class="kbi-plate__code">ETO East</span><span class="kbi-plate__since">28.–29. Okt. 2027</span></div>
+        <h3 class="kbi-plate__title">Ausgerichtet von KBI East · Hongkong und Shenzhen</h3>
+        <p class="kbi-plate__body">Schwerpunkt: die Hintergrundprozesse und Infrastrukturen von Innovation und Technologie, etwa Lieferkette, Logistik, Handel, Finanzierung, Fertigung und Rapid Prototyping.</p>
+        <div class="kbi-plate__foot"><span class="tags"><span class="kbi-tag">BCTT</span><span class="kbi-tag">DSAI</span><span class="kbi-tag">QCIT</span></span><a href="https://hk.kb.institute">ETO East →</a></div>
+      </article>
+    </div>
+
   </div>
 </section>
 <section class="cta" aria-labelledby="ctaTitle">
@@ -458,7 +559,7 @@ details.more .tbl-wrap { border: 0; }
       <p>Schüler, Lehrkräfte, Fachleute und Partner sind willkommen.</p>
     </div>
     <div class="cta__actions">
-      <a class="kbi-btn kbi-btn--gold" href="../bewerben/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
+      <a class="kbi-btn kbi-btn--gold" href="../kontakt/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
       <a class="kbi-btn kbi-btn--outline" href="../kontakt/index.html">Partner werden</a>
     </div>
   </div>

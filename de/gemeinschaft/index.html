@@ -8,7 +8,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.kb.institute/de/gemeinschaft">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vF4pMrUP2HW5MTseovRtn3z2bsyyAox63cfgJUFDFZICwSPOdNyygpqvj5WVVBfYU4zW3ByQyz5Imp4WURavAUhf05QiqXrge-YdKHrmv6AgdNXRPOuTDfY3xQ6Osl6dZmr1aJHdVXWITmlYs3-y0dVYdLENn1GFTq9hyzv3VSCC_aDB9S6IY9A39jBsY=w16383">
 <link rel="canonical" href="https://www.kb.institute/de/gemeinschaft">
 <link rel="alternate" hreflang="en" href="https://www.kb.institute/community">
 <link rel="alternate" hreflang="de" href="https://www.kb.institute/de/gemeinschaft">
@@ -394,9 +393,6 @@ details.more .tbl-wrap { border: 0; }
 .lang { display: inline-flex; border: 1px solid var(--rule-strong); }
 .kbi-header nav.kbi-lang { display: inline-flex; gap: 0; flex-wrap: nowrap; }
 .kbi-header nav.kbi-lang a { padding: 7px 10px; border-bottom: 0; }
-.review { margin: 0; padding: var(--space-4) var(--space-5); border: 1px dashed var(--gold); color: var(--gold); font: 500 13px/1.5 var(--font-mono); }
-.review::before { content: "Review note · "; font-weight: 700; }
-
 /* Shared footer */
 /* Shared footer styles */
 .footer { background: var(--ground-deep); border-top: 1px solid var(--rule-strong); }
@@ -414,7 +410,49 @@ details.more .tbl-wrap { border: 0; }
 .footer .wrap { box-sizing: border-box; }
 .footer ul.footer__cols { grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, max-content); column-gap: var(--space-6); }
 @media (max-width: 480px) { .footer .wrap > div:has(.footer__cols) { grid-column: 1 / -1; } }
+/* Page layout (same as the English page) */
+.items.items--wgs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .items.items--wgs { grid-template-columns: minmax(0, 1fr); } }
+.items.items--ocs { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.items.items--ocs li { grid-column: span 3; }
+.items.items--ocs li:nth-child(-n+3) { grid-column: span 2; }
+@media (max-width: 760px) { .items.items--ocs { grid-template-columns: minmax(0, 1fr); } .items.items--ocs li, .items.items--ocs li:nth-child(n) { grid-column: auto; } }
+.items.items--councils { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.items.items--councils li { grid-column: span 3; }
+.items.items--councils li:nth-child(3), .items.items--councils li:nth-child(4), .items.items--councils li:nth-child(5) { grid-column: span 2; }
+@media (max-width: 760px) { .items.items--councils { grid-template-columns: minmax(0, 1fr); } .items.items--councils li, .items.items--councils li:nth-child(n) { grid-column: auto; } }
+.items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-4); }
+.items li { padding: var(--space-5); background: var(--panel); border: 1px solid var(--rule-strong); display: grid; gap: var(--space-2); align-content: start; }
+.items h3 { margin: 0; font: 600 22px/1.15 var(--font-display); color: var(--line); }
+.items__short { font: 500 12px/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+.items p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--line-muted); }
+.items a { font: 500 13px/1.4 var(--font-mono); }
+.regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+.regions article { padding: var(--space-5); background: var(--panel); border: 1px solid var(--rule-strong); display: grid; gap: var(--space-3); align-content: start; }
+.regions h3 { margin: 0; font: 600 26px/1.1 var(--font-display); color: var(--line); }
+.regions ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--line); }
+.regions li::marker { color: var(--cyan); }
+@media (max-width: 760px) { .regions { grid-template-columns: minmax(0, 1fr); } }
+/* Layout safety: long words and labels never push a page wider than the screen */
+h1, h2, h3, .phero__lead, .stitle p, .h3card p { overflow-wrap: break-word; }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) .phero__lead, :lang(de) .stitle p, :lang(de) .h3card p { hyphens: auto; }
+.stitle__eyebrow > .kbi-label { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+.stitle__sheet { white-space: nowrap; }
+.h3card__eye > span:first-child { white-space: normal; min-width: 0; }
+.items__short, .items h3 { overflow-wrap: anywhere; }
+.section > .wrap { grid-template-columns: minmax(0, 1fr); }
+.stitle { grid-template-columns: minmax(0, 1fr); }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) dt { overflow-wrap: anywhere; }
+@media (max-width: 480px) { .items li { padding: var(--space-4); } }
 </style>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#003153">
+<meta property="og:image" content="https://www.kb.institute/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <div class="kbi" id="top">
@@ -441,14 +479,87 @@ details.more .tbl-wrap { border: 0; }
 <section class="phero" aria-labelledby="pageTitle">
   <div class="wrap">
     <div class="phero__text">
-      <nav class="crumbs" aria-label="Brotkrumen"><ol>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol>
         <li><a href="../index.html">Start</a></li>
         <li aria-current="page">Gemeinschaft</li>
       </ol></nav>
+      <span class="phero__eyebrow kbi-label"><span>Gemeinschaft</span></span>
       <h1 id="pageTitle">Gemeinschaft</h1>
-      <p class="phero__lead">Diese Seite wird gerade im neuen Stil gezeichnet.</p>
-      <p class="review">Placeholder. Built in a later review round.</p>
+      <p class="phero__lead">KBI arbeitet über Vorstände, Räte, Organisationskomitees und Arbeitsgruppen. Gemeinsam verbinden sie Studierende, Fachleute und Partner in Ost und West.</p>
     </div>
+  </div>
+</section>
+
+<section class="section" id="boards" aria-labelledby="boardsTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">KBI-Vorstände</span><span class="stitle__sheet">Blatt 2 / 5</span></div>
+      <h2 id="boardsTitle">Zwei Vorstände.</h2>
+      <p>Erfahrene Fachleute mit einem Gespür für wirkungsstarkes Aufbauen.</p>
+    </header>
+    <ul class="items">
+      <li><span class="items__short">BOD</span><h3>Vorstand</h3><p><a href="team/index.html#directors">Zum Vorstand →</a></p></li>
+      <li><span class="items__short">BOA</span><h3>Beirat</h3><p><a href="team/index.html#advisors">Zum Beirat →</a></p></li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="section" id="councils" aria-labelledby="councilsTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">KBI-Räte</span><span class="stitle__sheet">Blatt 3 / 5</span></div>
+      <h2 id="councilsTitle">Sieben Räte.</h2>
+      <p>Fachleute, Alumni und Organisatoren, die KBI und seine Olympiaden beraten.</p>
+    </header>
+    <ul class="items items--councils">
+      <li><span class="items__short">KBI SHAPE Council</span><h3>Rat der SHAPE-Fachleute</h3><p>Für Sozialwissenschaften, Geisteswissenschaften und Künste für Mensch und Wirtschaft</p></li>
+      <li><span class="items__short">KBI STEM Council</span><h3>Rat der MINT-Fachleute</h3><p>Für Naturwissenschaften, Technik, Ingenieurwesen und Mathematik</p></li>
+      <li><span class="items__short">IBCOL Experts Council</span><h3>Rat der BCTT-Fachleute</h3><p>Für Blockchain &amp; Vertrauenstechnologien</p></li>
+      <li><span class="items__short">IDSOL Experts Council</span><h3>Rat der DSAI-Fachleute</h3><p>Für Data Science &amp; Künstliche Intelligenz</p></li>
+      <li><span class="items__short">IQCOL Experts Council</span><h3>Rat der QCIT-Fachleute</h3><p>Für Quantencomputing &amp; Informationstheorie</p></li>
+      <li><span class="items__short">KBI Alumni Council</span><h3>Rat der KBI-Alumni</h3><p>Für Gemeinschaft und Kultur</p></li>
+      <li><span class="items__short">OC Council</span><h3>Rat der Organisationskomitees</h3><p>Für Abläufe und Umsetzung</p></li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="section" id="committees" aria-labelledby="committeesTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">KBI-Organisationskomitees</span><span class="stitle__sheet">Blatt 4 / 5</span></div>
+      <h2 id="committeesTitle">Neun Organisationskomitees.</h2>
+      <p>Für jede Ausgabe jedes Programms bildet sich ein neues Komitee.</p>
+    </header>
+    <ul class="items items--ocs">
+      <li><span class="items__short">IBCOL OC</span><h3>IBCOL-Organisationskomitee</h3><p>Für die Internationale Blockchain-Olympiade</p></li>
+      <li><span class="items__short">IDSOL OC</span><h3>IDSOL-Organisationskomitee</h3><p>Für die Internationale Data-Science-Olympiade</p></li>
+      <li><span class="items__short">IQCOL OC</span><h3>IQCOL-Organisationskomitee</h3><p>Für die Internationale Quantencomputing-Olympiade</p></li>
+      <li><span class="items__short">ETO EOC</span><h3>ETO-Organisationskomitee Ost</h3><p>Für die Emerging Technologies Olympiads, Konferenz Ost</p></li>
+      <li><span class="items__short">ETO WOC</span><h3>ETO-Organisationskomitee West</h3><p>Für die Emerging Technologies Olympiads, Konferenz West</p></li>
+      <li><span class="items__short">ERTW EOC</span><h3>ERTW-Organisationskomitee Ost</h3><p>Für die Emerging Research and Tech Week, Konferenz Ost</p></li>
+      <li><span class="items__short">ERTW WOC</span><h3>ERTW-Organisationskomitee West</h3><p>Für die Emerging Research and Tech Week, Konferenz West</p></li>
+      <li><span class="items__short">HackU OC</span><h3>HackU-Organisationskomitee</h3><p>Für den HackU-Hochschulhackathon</p></li>
+      <li><span class="items__short">KFC OC</span><h3>KFC-Organisationskomitee</h3><p>Für das Programm Kalman Filter Crucible</p></li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="section" id="working-groups" aria-labelledby="working-groupsTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">KBI-Arbeitsgruppen</span><span class="stitle__sheet">Blatt 5 / 5</span></div>
+      <h2 id="working-groupsTitle">Drei Arbeitsgruppen.</h2>
+      <p>Den Möglichkeitsraum für ein besseres Morgen erweitern, indem wir Anwendungen der Spitzenforschung und neuer Technologien erkunden.</p>
+    </header>
+    <ul class="items items--wgs">
+      <li><span class="items__short">SSI</span><h3>Arbeitsgruppe Self-Sovereignty-Infrastruktur</h3><p>Nutzergesteuerte Identitätsinfrastruktur: DIDs, überprüfbare Nachweise und Schlüsselverwaltung, damit Inhaberinnen und Inhaber überall nachweisen können, wer sie sind.</p></li>
+      <li><span class="items__short">PCI</span><h3>Arbeitsgruppe Privacy-Centricity-Infrastruktur</h3><p>Datenschutz durch Technikgestaltung: Zero-Knowledge-Beweise, selektive Offenlegung, Datenminimierung. Prüfen, ohne mehr als nötig zu erheben.</p></li>
+      <li><span class="items__short">EI3</span><h3>Arbeitsgruppe Bildungsinnovation &amp; Infrastrukturinitiativen</h3><p>Lerninfrastruktur für Zukunftssicherheit und marktreife Fachkräfte: Brücken zwischen Hochschule und Industrie bauen und Bildung selbst neu denken.</p></li>
+    </ul>
+
   </div>
 </section>
 <section class="cta" aria-labelledby="ctaTitle">
@@ -458,7 +569,7 @@ details.more .tbl-wrap { border: 0; }
       <p>Schüler, Lehrkräfte, Fachleute und Partner sind willkommen.</p>
     </div>
     <div class="cta__actions">
-      <a class="kbi-btn kbi-btn--gold" href="../bewerben/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
+      <a class="kbi-btn kbi-btn--gold" href="../kontakt/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
       <a class="kbi-btn kbi-btn--outline" href="../kontakt/index.html">Partner werden</a>
     </div>
   </div>

@@ -8,7 +8,6 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.kb.institute/de/gemeinschaft/team">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vF4pMrUP2HW5MTseovRtn3z2bsyyAox63cfgJUFDFZICwSPOdNyygpqvj5WVVBfYU4zW3ByQyz5Imp4WURavAUhf05QiqXrge-YdKHrmv6AgdNXRPOuTDfY3xQ6Osl6dZmr1aJHdVXWITmlYs3-y0dVYdLENn1GFTq9hyzv3VSCC_aDB9S6IY9A39jBsY=w16383">
 <link rel="canonical" href="https://www.kb.institute/de/gemeinschaft/team">
 <link rel="alternate" hreflang="en" href="https://www.kb.institute/community/team">
 <link rel="alternate" hreflang="de" href="https://www.kb.institute/de/gemeinschaft/team">
@@ -394,9 +393,6 @@ details.more .tbl-wrap { border: 0; }
 .lang { display: inline-flex; border: 1px solid var(--rule-strong); }
 .kbi-header nav.kbi-lang { display: inline-flex; gap: 0; flex-wrap: nowrap; }
 .kbi-header nav.kbi-lang a { padding: 7px 10px; border-bottom: 0; }
-.review { margin: 0; padding: var(--space-4) var(--space-5); border: 1px dashed var(--gold); color: var(--gold); font: 500 13px/1.5 var(--font-mono); }
-.review::before { content: "Review note · "; font-weight: 700; }
-
 /* Shared footer */
 /* Shared footer styles */
 .footer { background: var(--ground-deep); border-top: 1px solid var(--rule-strong); }
@@ -414,7 +410,36 @@ details.more .tbl-wrap { border: 0; }
 .footer .wrap { box-sizing: border-box; }
 .footer ul.footer__cols { grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, max-content); column-gap: var(--space-6); }
 @media (max-width: 480px) { .footer .wrap > div:has(.footer__cols) { grid-column: 1 / -1; } }
+/* Page layout (same as the English page) */
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-5); }
+@media (max-width: 1000px) { .people { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.person { display: grid; gap: var(--space-2); align-content: start; text-align: center; container-type: inline-size; }
+.person img, .person__ini { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--rule-strong); background: var(--panel); display: block; }
+.person__ini { display: grid; place-items: center; font: 600 40px/1 var(--font-display); color: var(--line-muted); }
+.person h3 { margin: 0; font: 600 min(20px, 7.4cqi)/1.2 var(--font-display); color: var(--line); white-space: nowrap; }
+.person img + *, .person__ini + * { margin-top: var(--space-2); }
+.person__role { font: 500 min(12px, 6.2cqi)/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+@media (max-width: 480px) { .people { gap: var(--space-3); } .person__ini { font-size: 28px; } }
+/* Layout safety: long words and labels never push a page wider than the screen */
+h1, h2, h3, .phero__lead, .stitle p, .h3card p { overflow-wrap: break-word; }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) .phero__lead, :lang(de) .stitle p, :lang(de) .h3card p { hyphens: auto; }
+.stitle__eyebrow > .kbi-label { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+.stitle__sheet { white-space: nowrap; }
+.h3card__eye > span:first-child { white-space: normal; min-width: 0; }
+.items__short, .items h3 { overflow-wrap: anywhere; }
+.section > .wrap { grid-template-columns: minmax(0, 1fr); }
+.stitle { grid-template-columns: minmax(0, 1fr); }
+:lang(de) h1, :lang(de) h2, :lang(de) h3, :lang(de) dt { overflow-wrap: anywhere; }
+@media (max-width: 480px) { .items li { padding: var(--space-4); } }
 </style>
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="manifest" href="../../../site.webmanifest">
+<meta name="theme-color" content="#003153">
+<meta property="og:image" content="https://www.kb.institute/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <div class="kbi" id="top">
@@ -441,15 +466,66 @@ details.more .tbl-wrap { border: 0; }
 <section class="phero" aria-labelledby="pageTitle">
   <div class="wrap">
     <div class="phero__text">
-      <nav class="crumbs" aria-label="Brotkrumen"><ol>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol>
         <li><a href="../../index.html">Start</a></li>
         <li><a href="../index.html">Gemeinschaft</a></li>
         <li aria-current="page">Team</li>
       </ol></nav>
+      <span class="phero__eyebrow kbi-label"><span>Gemeinschaft</span></span>
       <h1 id="pageTitle">Team</h1>
-      <p class="phero__lead">Diese Seite wird gerade im neuen Stil gezeichnet.</p>
-      <p class="review">Placeholder. Built in a later review round.</p>
+      <p class="phero__lead">Die Menschen, die KBI leiten und beraten.</p>
     </div>
+  </div>
+</section>
+
+<section class="section" id="directors" aria-labelledby="directorsTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">Vorstand</span><span class="stitle__sheet">Blatt 2 / 4</span></div>
+      <h2 id="directorsTitle">Vorstand.</h2>
+    </header>
+    <ul class="people">
+      <li class="person"><img src="../../../assets/team/gabriel-chan.jpg" alt="" width="160" height="160" loading="lazy"><h3>Gabriel Chan</h3></li>
+      <li class="person"><img src="../../../assets/team/mihkel-kerem.jpg" alt="" width="160" height="160" loading="lazy"><h3>Mihkel Kerem</h3></li>
+      <li class="person"><img src="../../../assets/team/brian-woolsey-2.jpg" alt="" width="160" height="160" loading="lazy"><h3>Brian Woolsey</h3></li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="section" id="advisors" aria-labelledby="advisorsTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">Beirat</span><span class="stitle__sheet">Blatt 3 / 4</span></div>
+      <h2 id="advisorsTitle">Beirat.</h2>
+    </header>
+    <ul class="people">
+      <li class="person"><img src="../../../assets/team/adrian-alexandrescu.jpg" alt="" width="160" height="160" loading="lazy"><h3>Dr. Adrian Alexandrescu</h3></li>
+      <li class="person"><img src="../../../assets/team/alan-edelman.jpg" alt="" width="160" height="160" loading="lazy"><h3>Dr. Alan Edelman</h3></li>
+      <li class="person"><img src="../../../assets/team/angus-law.jpg" alt="" width="160" height="160" loading="lazy"><h3>Dr. Angus Law</h3></li>
+      <li class="person"><img src="../../../assets/team/isabel-yan.jpg" alt="" width="160" height="160" loading="lazy"><h3>Dr. Isabel Yan</h3></li>
+      <li class="person"><img src="../../../assets/team/stephen-ko.jpg" alt="" width="160" height="160" loading="lazy"><h3>Dr. Stephen Ko</h3></li>
+      <li class="person"><img src="../../../assets/team/terrya-choi.jpg" alt="" width="160" height="160" loading="lazy"><h3>Dr. Terrya Choi</h3></li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="section" id="convenors" aria-labelledby="convenorsTitle">
+  <div class="wrap">
+    <header class="stitle">
+      <div class="stitle__eyebrow"><span class="kbi-label">Ratsvorsitz</span><span class="stitle__sheet">Blatt 4 / 4</span></div>
+      <h2 id="convenorsTitle">Ratsvorsitzende.</h2>
+    </header>
+    <ul class="people">
+      <li class="person"><img src="../../../assets/team/maryna-danylyuk.jpg" alt="" width="160" height="160" loading="lazy"><span class="person__role">KBI SHAPE Council</span><h3>Maryna Danylyuk</h3></li>
+      <li class="person"><img src="../../../assets/team/viktor-tabori.jpg" alt="" width="160" height="160" loading="lazy"><span class="person__role">KBI STEM Council</span><h3>Viktor Tabori</h3></li>
+      <li class="person"><img src="../../../assets/team/danielle-cadoret.jpg" alt="" width="160" height="160" loading="lazy"><span class="person__role">KBI Alumni Council</span><h3>Dr. Danielle Cadoret</h3></li>
+      <li class="person"><img src="../../../assets/team/yalsin-li.jpg" alt="" width="160" height="160" loading="lazy"><span class="person__role">IBCOL Experts Council</span><h3>Dr. Yalsin Li</h3></li>
+      <li class="person"><img src="../../../assets/team/david-fortini.jpg" alt="" width="160" height="160" loading="lazy"><span class="person__role">IDSOL Experts Council</span><h3>David Fortini</h3></li>
+      <li class="person"><img src="../../../assets/team/andreea-moga.jpg" alt="" width="160" height="160" loading="lazy"><span class="person__role">IQCOL Experts Council</span><h3>Andreea Moga</h3></li>
+    </ul>
+
   </div>
 </section>
 <section class="cta" aria-labelledby="ctaTitle">
@@ -459,7 +535,7 @@ details.more .tbl-wrap { border: 0; }
       <p>Schüler, Lehrkräfte, Fachleute und Partner sind willkommen.</p>
     </div>
     <div class="cta__actions">
-      <a class="kbi-btn kbi-btn--gold" href="../../bewerben/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
+      <a class="kbi-btn kbi-btn--gold" href="../../kontakt/index.html"><span>Beim KBI bewerben</span> <span class="kbi-btn__arrow" aria-hidden="true">→</span></a>
       <a class="kbi-btn kbi-btn--outline" href="../../kontakt/index.html">Partner werden</a>
     </div>
   </div>
