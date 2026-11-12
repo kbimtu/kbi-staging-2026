@@ -250,7 +250,7 @@ a { color: var(--cyan); text-underline-offset: 3px; }
 .after h2 { margin: 0; font: 600 clamp(28px, 4vw, 44px)/1.05 var(--font-display); }
 .after p { margin: 8px 0 0; color: var(--line-muted); max-width: 60ch; }
 .after__links { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn2 { display: inline-flex; padding: 12px 18px; border: 1px solid var(--rule-strong); color: var(--line); text-decoration: none; font: 500 13px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.btn2 { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 12px 18px; border: 1px solid var(--rule-strong); color: var(--line); text-decoration: none; font: 500 13px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
 .btn2:hover { color: var(--cyan); box-shadow: var(--glow-cyan); }
 .ft { border-top: 1px dashed var(--rule-strong); }
 .ft .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-block: 20px; font: 500 12px/1.4 var(--font-mono); letter-spacing: .06em; color: var(--line-muted); }
@@ -301,7 +301,7 @@ a { color: var(--cyan); text-underline-offset: 3px; }
 /* Shared footer styles */
 .footer { background: var(--ground-deep); border-top: 1px solid var(--rule-strong); }
 .footer__skyline { display: block; width: 100%; height: 170px; border-bottom: 1px solid var(--rule-strong); }
-.footer .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: var(--space-6); padding-block: var(--space-7); }
+.footer .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--space-6); padding-block: var(--space-7); }
 .footer h3 { margin: 0 0 var(--space-3); color: var(--gold); }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
 .footer a { color: var(--line); text-decoration: none; }
@@ -312,6 +312,8 @@ a { color: var(--cyan); text-underline-offset: 3px; }
 @media (max-width: 820px) { .footer .wrap { grid-template-columns: 1fr 1fr; } .footer__brand { grid-column: 1 / -1; } }
 .footer .kbi-label { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; line-height: 1.4; }
 .footer .wrap { box-sizing: border-box; }
+.footer ul.footer__cols { grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, max-content); column-gap: var(--space-6); }
+@media (max-width: 480px) { .footer .wrap > div:has(.footer__cols) { grid-column: 1 / -1; } }
 
 </style>
 
@@ -327,7 +329,6 @@ a { color: var(--cyan); text-underline-offset: 3px; }
     <nav class="kbi-main" id="kbiMain" aria-label="Main">
       <a href="../index.html" aria-current="page">About</a>
       <a href="../../olympiads/index.html">Olympiads</a>
-      <a href="../../events/index.html">Events</a>
       <a href="../../community/index.html">Community</a>
       <a href="../../contact/index.html">Contact</a>
     </nav>
@@ -461,7 +462,7 @@ a { color: var(--cyan); text-underline-offset: 3px; }
     </div>
     <div>
       <h3 class="kbi-label">Institute</h3>
-      <ul>
+      <ul class="footer__cols">
         <li><a href="index.html">Inspiration</a></li>
         <li><a href="../history/index.html">History</a></li>
         <li><a href="../organization/index.html">Organization</a></li>
@@ -675,7 +676,7 @@ scene.fog = new THREE.Fog(COL.ground, 700, 2100);
 var camera = new THREE.PerspectiveCamera(48, 1, 1, 5000);
 
 var matFill = new THREE.MeshBasicMaterial({ color: COL.panel, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
-var matEdge = new THREE.LineBasicMaterial({ color: COL.line, transparent: true, opacity: 0.85 });
+var matEdge = new THREE.LineBasicMaterial({ color: COL.muted, transparent: true, opacity: 0.72 }); // landmarks: lighter than white, still above the houses (0.45)
 var matEdgeDim = new THREE.LineBasicMaterial({ color: COL.muted, transparent: true, opacity: 0.45 });
 
 // Drafting grid on the ground
@@ -783,6 +784,68 @@ LANDMARKS.forEach(function (l) { LMK[l.key] = l; });
   var k = LMK.kirche; blockInto(LFP, LEP, (k.x0 + 12 + k.x1) / 2, (k.z0 + k.z1) / 2, 0, k.x1 - k.x0 - 12, k.z1 - k.z0, 16, 10); tower(k.x0 + 6, (k.z0 + k.z1) / 2, 12, 36, 26);
   ['steindamm', 'sackheim'].forEach(function (key) { var s = LMK[key]; blockInto(LFP, LEP, (s.x0 + 10 + s.x1) / 2, (s.z0 + s.z1) / 2, 0, s.x1 - s.x0 - 10, s.z1 - s.z0, 12, 8); tower(s.x0 + 5, (s.z0 + s.z1) / 2, 10, 28, 18); });
   ['gericht', 'kaemmerei', 'schule', 'uni', 'packhof'].forEach(function (key) { var s = LMK[key]; blockInto(LFP, LEP, (s.x0 + s.x1) / 2, (s.z0 + s.z1) / 2, 0, s.x1 - s.x0, s.z1 - s.z0, key === 'uni' ? 15 : 13, key === 'packhof' ? 9 : 7); });
+})();
+
+// Landmark details: windows, lancets, string courses and belfry openings, drawn as lines on the walls
+(function () {
+  function L(a, b) { LEP.push(a[0], a[1], a[2], b[0], b[1], b[2]); }
+  function Wp(cx, cz, ang, lx, ly, lz) { var ca = Math.cos(ang), sa = Math.sin(ang); return [cx + lx * ca - lz * sa, ly, cz + lx * sa + lz * ca]; }
+  // Openings on all four walls. o: { floors, y0, ww, wh, step, lancet, belts }
+  function walls(cx, cz, ang, w, d, h, o) {
+    var y0 = o.y0 || 0, fl = o.floors || 1, sh = (h - y0) / fl, e = 0.2;
+    var faces = [[w, d / 2 + e, false], [w, -(d / 2 + e), false], [d, w / 2 + e, true], [d, -(w / 2 + e), true]];
+    faces.forEach(function (f) {
+      var len = f[0], off = f[1], side = f[2], n = Math.max(1, Math.floor(len / o.step));
+      function P(u, y) { return side ? Wp(cx, cz, ang, off, y, u) : Wp(cx, cz, ang, u, y, off); }
+      for (var fi = 0; fi < fl; fi++) {
+        var yb = y0 + fi * sh + (sh - o.wh) / 2, yt = yb + o.wh;
+        for (var i = 0; i < n; i++) {
+          var u = -len / 2 + (i + 0.5) * len / n, a = u - o.ww / 2, b = u + o.ww / 2;
+          L(P(a, yb), P(b, yb)); L(P(a, yb), P(a, yt)); L(P(b, yb), P(b, yt));
+          if (o.lancet) { L(P(a, yt), P(u, yt + o.ww * 0.9)); L(P(b, yt), P(u, yt + o.ww * 0.9)); } else L(P(a, yt), P(b, yt));
+        }
+      }
+      (o.belts || []).forEach(function (y) { L(P(-len / 2, y), P(len / 2, y)); });
+    });
+  }
+  function towerDetail(cx, cz, w, h) {
+    walls(cx, cz, 0, w, w, h, { floors: 1, y0: h * 0.78, ww: w * 0.16, wh: h * 0.12, step: w / 2, lancet: true, belts: [h * 0.33, h * 0.55, h * 0.76] });
+    walls(cx, cz, 0, w, w, h * 0.7, { floors: 2, y0: h * 0.1, ww: w * 0.1, wh: h * 0.08, step: w, lancet: false });
+  }
+  var c = LMK.castle, cw = c.x1 - c.x0, cd = c.z1 - c.z0, mx = (c.x0 + c.x1) / 2, mz = (c.z0 + c.z1) / 2;
+  var win = { floors: 3, y0: 1, ww: 1.8, wh: 2.6, step: 6, belts: [6.4, 12.2] };
+  walls(mx, c.z0 + 7, 0, cw, 14, 18, win); walls(mx, c.z1 - 7, 0, cw, 14, 18, win);
+  walls(c.x0 + 7, mz, Math.PI / 2, cd - 28, 14, 18, win); walls(c.x1 - 7, mz, Math.PI / 2, cd - 28, 14, 18, win);
+  towerDetail(c.x0 + 8, c.z1 - 8, 16, 52);
+  var d = LMK.dom; walls((d.x0 + 14 + d.x1) / 2, (d.z0 + d.z1) / 2, 0, d.x1 - d.x0 - 14, d.z1 - d.z0, 20, { floors: 1, y0: 3, ww: 2.6, wh: 10, step: 7, lancet: true, belts: [2.2] }); towerDetail(d.x0 + 7, (d.z0 + d.z1) / 2, 15, 40);
+  var r = LMK.rath; walls((r.x0 + r.x1) / 2, (r.z0 + r.z1) / 2, 0, r.x1 - r.x0, r.z1 - r.z0, 14, { floors: 2, y0: 1, ww: 1.8, wh: 3, step: 5, belts: [7] });
+  var k = LMK.kirche; walls((k.x0 + 12 + k.x1) / 2, (k.z0 + k.z1) / 2, 0, k.x1 - k.x0 - 12, k.z1 - k.z0, 16, { floors: 1, y0: 2.5, ww: 2.4, wh: 8, step: 7, lancet: true, belts: [1.8] }); towerDetail(k.x0 + 6, (k.z0 + k.z1) / 2, 12, 36);
+  ['steindamm', 'sackheim'].forEach(function (key) { var t = LMK[key]; walls((t.x0 + 10 + t.x1) / 2, (t.z0 + t.z1) / 2, 0, t.x1 - t.x0 - 10, t.z1 - t.z0, 12, { floors: 1, y0: 2, ww: 2.2, wh: 6, step: 6.5, lancet: true }); towerDetail(t.x0 + 5, (t.z0 + t.z1) / 2, 10, 28); });
+  ['gericht', 'kaemmerei', 'schule', 'uni', 'packhof'].forEach(function (key) { var t = LMK[key], h = key === 'uni' ? 15 : 13;
+    walls((t.x0 + t.x1) / 2, (t.z0 + t.z1) / 2, 0, t.x1 - t.x0, t.z1 - t.z0, h, key === 'packhof' ? { floors: 2, y0: 0.5, ww: 3.2, wh: 4.2, step: 9, belts: [6.5] } : { floors: 3, y0: 1, ww: 1.6, wh: 2.4, step: 4.5, belts: [h / 3 + 0.3] }); });
+})();
+
+// Speicher: tall half-timbered warehouses on the Lastadie quay (north bank of the Pregel, west of the fork), with hoists and quay cranes
+(function () {
+  function L(a, b) { LEP.push(a[0], a[1], a[2], b[0], b[1], b[2]); }
+  var seed = 1255; function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  var x = -296, k = 0;
+  while (x > -540) {
+    var wx = 10 + rnd() * 3, dz = 16 + rnd() * 4, h = 20 + rnd() * 8, roof = 11 + rnd() * 4;
+    var bank = polyZ(CH[0].pts, x - wx / 2) - CH[0].hw, front = bank - 5, cz = front - dz / 2, cx = x - wx / 2;
+    blockInto(LFP, LEP, cx, cz, Math.PI / 2, dz, wx, h, roof);
+    // Half-timbering on the river gable: storeys, posts, braces, and the stacked loading doors
+    var zf = front + 0.15, x0 = cx - wx / 2, x1 = cx + wx / 2, n = Math.round(h / 4.5), sh = h / n;
+    for (var i = 1; i < n; i++) L([x0, i * sh, zf], [x1, i * sh, zf]);
+    L([cx - wx / 6, 0, zf], [cx - wx / 6, h, zf]); L([cx + wx / 6, 0, zf], [cx + wx / 6, h, zf]);
+    for (i = 0; i < n; i++) { var ya = i * sh, yb = ya + sh; L([x0, i % 2 ? yb : ya, zf], [cx - wx / 6, i % 2 ? ya : yb, zf]); L([x1, i % 2 ? yb : ya, zf], [cx + wx / 6, i % 2 ? ya : yb, zf]); }
+    // Gable storeys and the hoist: a beam out over the quay, with its rope
+    for (i = 1; i < 3; i++) { var gy = h + roof * i / 3, gw = wx / 2 * (1 - i / 3); L([cx - gw, gy, zf], [cx + gw, gy, zf]); }
+    var hy = h + roof * 0.72; L([cx, hy, zf], [cx, hy, zf + 4]); L([cx, hy, zf + 4], [cx, h * 0.35, zf + 4]);
+    // A jib crane on the quay after every second Speicher
+    if (k % 2 === 1) { var qx = x0 - 1.5, qz = bank - 1.5; L([qx, 0, qz], [qx, 15, qz]); L([qx, 13, qz], [qx, 17, qz + 13]); L([qx, 6, qz], [qx, 13.5, qz + 5.5]); L([qx, 17, qz + 13], [qx, 4, qz + 13]); }
+    x -= wx + 2 + rnd() * 3; k++;
+  }
 })();
 
 // Houses along the streets

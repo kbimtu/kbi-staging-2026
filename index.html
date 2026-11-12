@@ -1,9 +1,9 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <script>document.documentElement.lang = "en-CA";</script>
 <title>KBI :: Königsberger Bridges Institute :: Königsberger Brückeninstitut MTÜ</title>
-<meta name="description" content="International KBI Olympiads (I2OL) &amp; Emerging Technology Olympiads (ETO)">
+<meta name="description" content="International KBI Olympiads (I2OL) &amp; Emerging Technologies Olympiads (ETO)">
 <meta property="og:title" content="KBI :: Königsberger Bridges Institute :: Königsberger Brückeninstitut">
-<meta property="og:description" content="International KBI Olympiads (I2OL) &amp; Emerging Technology Olympiads (ETO)">
+<meta property="og:description" content="International KBI Olympiads (I2OL) &amp; Emerging Technologies Olympiads (ETO)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.kb.institute/">
 <meta property="og:locale" content="en_CA">
@@ -287,7 +287,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 .h3step--last { min-height: 320vh; align-items: flex-start; padding-top: 22vh; }
 .h3step--last .h3card { position: sticky; top: calc(var(--hdr, 65px) + 16vh); }
-@media (max-width: 760px) { .h3step--last { align-items: flex-end; padding-top: 0; } .h3step--last .h3card { top: auto; bottom: 24px; } }
+@media (max-width: 760px) {
+  /* Last card enters like the others (resting at the bottom of the screen), then stays while the walk plays */
+  .h3step--last { align-items: flex-start; padding-top: calc(100vh - var(--h3last, 320px) - 24px); padding-top: calc(100svh - var(--h3last, 320px) - 24px); }
+  .h3step--last .h3card { bottom: auto; top: calc(100vh - var(--h3last, 320px) - 24px); top: calc(100svh - var(--h3last, 320px) - 24px); }
+}
 .h3d__skip { position: absolute; right: 22px; bottom: 18px; z-index: 2; padding: 6px 10px; font: 500 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--line-muted); text-decoration: none; background: rgba(0, 34, 58, .7); border: 1px solid var(--rule); transition: color .2s, border-color .2s; }
 .h3d__skip:hover, .h3d__skip:focus-visible { color: var(--gold); border-color: var(--gold); }
 @media (max-width: 760px) { .h3d__skip { left: 18px; right: auto; top: 18px; bottom: auto; } }
@@ -309,9 +313,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .statement .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--space-7); align-items: end; }
 .statement__text { display: grid; gap: var(--space-6); }
 .statement h2 { margin: 0; font: 600 clamp(40px, 6.4vw, 76px)/0.98 var(--font-display); color: var(--line); text-wrap: balance; }
-.statement__vision { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-3) var(--space-5); align-items: start; padding-top: var(--space-5); border-top: 1px dashed var(--rule-strong); }
+.statement__vision { display: grid; grid-template-columns: 172px minmax(0, 1fr); gap: var(--space-3) var(--space-5); align-items: start; padding-top: var(--space-5); border-top: 1px dashed var(--rule-strong); }
 .statement__vision p { margin: 0; font: 400 clamp(19px, 2vw, 23px)/1.45 var(--font-sans); color: var(--line); }
 .statement svg { width: 100%; height: auto; max-width: 420px; justify-self: end; color: var(--line); }
+.statement__acts ol { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; gap: 8px; }
+.statement__acts li { display: flex; gap: 12px; align-items: baseline; font: 400 clamp(17px, 1.8vw, 20px)/1.4 var(--font-sans); color: var(--line); }
+.statement__acts li b { display: inline-grid; place-items: center; width: 22px; height: 22px; flex: none; background: var(--gold); color: var(--on-gold); font: 700 12px/1 var(--font-mono); }
 @media (max-width: 820px) { .statement .wrap { grid-template-columns: 1fr; } .statement svg { max-width: 300px; justify-self: start; } }
 @media (max-width: 560px) { .statement__vision { grid-template-columns: 1fr; } }
 
@@ -408,6 +415,23 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .footer__brand img { width: 56px; height: 56px; }
 .footer__legal { grid-column: 1 / -1; padding-top: var(--space-4); border-top: 1px dashed var(--rule-strong); font: 500 12px/1.4 var(--font-mono); letter-spacing: .06em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3); color: var(--line-muted); }
 @media (max-width: 820px) { .footer .wrap { grid-template-columns: 1fr 1fr; } .footer__brand { grid-column: 1 / -1; } }
+/* Shared footer */
+/* Shared footer styles */
+.footer { background: var(--ground-deep); border-top: 1px solid var(--rule-strong); }
+.footer__skyline { display: block; width: 100%; height: 170px; border-bottom: 1px solid var(--rule-strong); }
+.footer .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--space-6); padding-block: var(--space-7); }
+.footer h3 { margin: 0 0 var(--space-3); color: var(--gold); }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.footer a { color: var(--line); text-decoration: none; }
+.footer a:hover { color: var(--cyan); text-decoration: underline; }
+.footer__brand { display: grid; gap: var(--space-3); align-content: start; font-size: 14px; color: var(--line-muted); }
+.footer__brand img { width: 56px; height: 56px; }
+.footer__legal { grid-column: 1 / -1; padding-top: var(--space-4); border-top: 1px dashed var(--rule-strong); font: 500 12px/1.4 var(--font-mono); letter-spacing: .06em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3); color: var(--line-muted); }
+@media (max-width: 820px) { .footer .wrap { grid-template-columns: 1fr 1fr; } .footer__brand { grid-column: 1 / -1; } }
+.footer .kbi-label { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; line-height: 1.4; }
+.footer .wrap { box-sizing: border-box; }
+.footer ul.footer__cols { grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, max-content); column-gap: var(--space-6); }
+@media (max-width: 480px) { .footer .wrap > div:has(.footer__cols) { grid-column: 1 / -1; } }
 </style>
 
 
@@ -424,7 +448,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <nav class="kbi-main" id="kbiMain" aria-label="Main">
       <a href="about/index.html">About</a>
       <a href="olympiads/index.html">Olympiads</a>
-      <a href="events/index.html">Events</a>
       <a href="community/index.html">Community</a>
       <a href="contact/index.html">Contact</a>
     </nav>
@@ -518,19 +541,33 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <span class="kbi-label" style="color: var(--gold-ink)">Our vision</span>
       <p>Prepare humanity for unknown unknowns through continuous innovation.</p>
     </div>
+    <div class="statement__vision statement__acts">
+      <span class="kbi-label" style="color: var(--gold-ink)">Our activities</span>
+      <div>
+        <p>We bridge</p>
+        <ol>
+          <li><b>1</b><span>tech with design thinking</span></li>
+          <li><b>2</b><span>ambitions to actions</span></li>
+          <li><b>3</b><span>cultural and social divides</span></li>
+          <li><b>4</b><span>academia and industry</span></li>
+        </ol>
+      </div>
     </div>
-    <svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-      <g stroke="var(--rule-strong)" stroke-width="0.6" stroke-dasharray="2 4"><path d="M150 14V292M20 150H284"/></g>
-      <path d="M40 270V130h220v140M30 130 150 30l120 100"/>
-      <path d="M40 200h220M40 130v140M95 130v140M150 130v140M205 130v140"/>
-      <path d="M40 200 95 130M95 200 40 130M205 200l55-70M260 200l-55-70M95 270l55-70M150 270l-55-70M150 270l55-70M205 270l-55-70"/>
-      <path d="M90 130 150 80l60 50M120 105h60"/>
-      <rect x="138" y="88" width="24" height="24"/><rect x="108" y="150" width="28" height="34"/><rect x="164" y="150" width="28" height="34"/>
-      <rect x="136" y="226" width="28" height="44"/>
-      <path d="M20 270h264" stroke-width="1.6"/>
-      <g stroke="var(--cyan)" stroke-width="0.9"><path d="M290 270V30M284 30h12M284 270h12M40 286h220M40 280v12M260 280v12"/></g>
-      <g fill="var(--cyan)" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11" font-style="italic"><text x="276" y="154">h</text><text x="146" y="298">b</text></g>
-      <g fill="var(--line-muted)" stroke="none" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1"><text x="20" y="20">FACHWERK · ANSICHT</text></g>
+    </div>
+    <svg viewBox="0 0 300 470" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <path d="M100 420V150H240V420" />
+      <path d="M100 375H240M100 330H240M100 285H240M100 240H240M100 195H240"/>
+      <path d="M128 150V420M156 150V420M184 150V420M212 150V420"/>
+      <path d="M100 420 128 375M240 420 212 375M128 375 100 330M212 375 240 330M128 330 156 375M212 330 184 375M100 330 128 285M240 330 212 285M128 285 100 240M212 285 240 240M128 240 156 285M212 240 184 285M100 240 128 195M240 240 212 195M128 195 100 150M212 195 240 150M128 150 156 195M212 150 184 195" stroke-width="0.9"/>
+      <rect x="159" y="384" width="22" height="30"/><path d="M170 384V414" stroke-width="0.6"/><rect x="159" y="339" width="22" height="30"/><path d="M170 339V369" stroke-width="0.6"/><rect x="159" y="294" width="22" height="30"/><path d="M170 294V324" stroke-width="0.6"/><rect x="159" y="249" width="22" height="30"/><path d="M170 249V279" stroke-width="0.6"/><rect x="159" y="204" width="22" height="30"/><path d="M170 204V234" stroke-width="0.6"/><rect x="159" y="159" width="22" height="30"/><path d="M170 159V189" stroke-width="0.6"/>
+      <rect x="134" y="343" width="16" height="14"/><rect x="190" y="343" width="16" height="14"/><rect x="134" y="298" width="16" height="14"/><rect x="190" y="298" width="16" height="14"/><rect x="134" y="253" width="16" height="14"/><rect x="190" y="253" width="16" height="14"/><rect x="134" y="208" width="16" height="14"/><rect x="190" y="208" width="16" height="14"/><rect x="134" y="163" width="16" height="14"/><rect x="190" y="163" width="16" height="14"/>
+      <path d="M92 150 170 40l78 110" stroke-width="1.4"/><path d="M114 120H226M136 90H204M158 60H182" />
+      <path d="M128 150V108M212 150V108M156 150V69M184 150V69" stroke-width="0.9"/>
+      <path d="M156 66V46h28v20M152 46l18-14 18 14" /><circle cx="170" cy="58" r="5"/>
+      <path d="M170 63V352" stroke="var(--cyan)" stroke-width="0.9"/><path d="M170 352c0 6 6 6 6 0" stroke="var(--cyan)" stroke-width="0.9"/><rect x="162" y="356" width="16" height="14" stroke="var(--cyan)" stroke-width="0.9"/>
+      <path d="M40 420V236M28 420h24M40 330 74 221M40 250l50-42" stroke-width="1.2"/><circle cx="40" cy="236" r="3"/><path d="M90 208V372" stroke="var(--cyan)" stroke-width="0.9"/><rect x="82" y="372" width="16" height="16" stroke="var(--cyan)" stroke-width="0.9"/><path d="M82 380h16" stroke="var(--cyan)" stroke-width="0.6"/>
+      <path d="M14 420h270" stroke-width="1.6"/><g stroke="var(--rule-strong)" stroke-width="0.8"><path d="M20 428c10-4 20 4 30 0s20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0"/><path d="M34 436c10-4 20 4 30 0s20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0 20 4 30 0"/></g>
+      <g stroke="var(--rule-strong)" stroke-width="0.6" stroke-dasharray="2 4"><path d="M170 20V446"/></g><g stroke="var(--cyan)" stroke-width="0.9"><path d="M270 420V40M264 40h12M264 420h12M100 452h140M100 446v12M240 446v12"/></g><g fill="var(--cyan)" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11" font-style="italic"><text x="276" y="234">h</text><text x="166" y="466">b</text></g><g fill="var(--line-muted)" stroke="none" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1"><text x="14" y="16">SPEICHER · ANSICHT</text><text x="14" y="200">KRAN</text><text x="196" y="30">WINDE</text></g>
     </svg>
   </div>
 </section>
@@ -574,22 +611,22 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <div class="kbi-pillars reg">
       <div class="kbi-pillar">
         <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 36 22 8 36 36Z"/><circle cx="22" cy="8" r="3" fill="currentColor"/><circle cx="8" cy="36" r="3" fill="currentColor"/><circle cx="36" cy="36" r="3" fill="currentColor"/></svg>
-        <span class="kbi-pillar__name">Compete</span><span class="kbi-pillar__de">Wetteifern</span>
+        <span class="kbi-pillar__de">Wetteifern</span><span class="kbi-pillar__name">Compete</span>
         <p>Rigorous technical and commercial design competitions</p>
       </div>
       <div class="kbi-pillar">
         <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="9"/><path d="M17 22l4 4 7-8"/></svg>
-        <span class="kbi-pillar__name">Certify</span><span class="kbi-pillar__de">Zertifizieren</span>
+        <span class="kbi-pillar__de">Zertifizieren</span><span class="kbi-pillar__name">Certify</span>
         <p>Competency assurance for market-ready, in-demand skills</p>
       </div>
       <div class="kbi-pillar">
         <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 22h28M22 8v28"/><circle cx="8" cy="22" r="3" fill="currentColor"/><circle cx="36" cy="22" r="3" fill="currentColor"/><circle cx="22" cy="8" r="3" fill="currentColor"/><circle cx="22" cy="36" r="3" fill="currentColor"/><circle cx="22" cy="22" r="4"/></svg>
-        <span class="kbi-pillar__name">Collab</span><span class="kbi-pillar__de">Zusammenarbeiten</span>
+        <span class="kbi-pillar__de">Zusammenarbeiten</span><span class="kbi-pillar__name">Collab</span>
         <p>Contribute via internships and KBI Working Groups</p>
       </div>
       <div class="kbi-pillar">
         <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 30C14 14 30 14 36 30"/><path d="M4 30h36"/><circle cx="8" cy="30" r="3" fill="currentColor"/><circle cx="36" cy="30" r="3" fill="currentColor"/></svg>
-        <span class="kbi-pillar__name">Connect</span><span class="kbi-pillar__de">Verbinden</span>
+        <span class="kbi-pillar__de">Verbinden</span><span class="kbi-pillar__name">Connect</span>
         <p>Emerging Research and Tech Weeks, Socratic Circles, etc.</p>
       </div>
     </div>
@@ -599,7 +636,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <section class="section" id="events" aria-labelledby="evTitle">
   <div class="wrap">
     <header class="stitle">
-      <div class="stitle__eyebrow"><span class="kbi-label">Emerging Technology Olympiads</span><span class="stitle__sheet">Blatt 5 / 7</span></div>
+      <div class="stitle__eyebrow"><span class="kbi-label">Emerging Technologies Olympiads</span><span class="stitle__sheet">Blatt 5 / 7</span></div>
       <h2 id="evTitle">Two conferences. Open to the world.</h2>
     </header>
     <ol class="kbi-events">
@@ -626,7 +663,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     </header>
     <div class="emblems" id="emblems"></div>
     <div class="org-cta" id="orgCta">
-      <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">VIII</span><span><a class="kbi-btn kbi-btn--gold" href="volunteer/index.html"><span>Apply to Volunteer</span> <span aria-hidden="true">→</span></a></span></div>
+      <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">VIII</span><span><a class="kbi-btn kbi-btn--gold" href="apply/index.html"><span>Apply to Volunteer</span> <span aria-hidden="true">→</span></a></span></div>
       <div class="kbi-emblem emblem-cta"><span class="kbi-emblem__seal">IX</span><span><a class="kbi-btn kbi-btn--outline" href="donate/index.html"><span>Donate to KBI</span> <span aria-hidden="true">→</span></a></span></div>
     </div>
   </div>
@@ -674,7 +711,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     </div>
     <div>
       <h3 class="kbi-label">Institute</h3>
-      <ul>
+      <ul class="footer__cols">
         <li><a href="about/inspiration/index.html">Inspiration</a></li>
         <li><a href="about/history/index.html">History</a></li>
         <li><a href="about/organization/index.html">Organization</a></li>
@@ -1218,7 +1255,7 @@ var camera = new THREE.PerspectiveCamera(48, 1, 1, 5000);
 
 var matFill = new THREE.MeshBasicMaterial({ color: COL.panel, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1, transparent: true });
 var matStreet = new THREE.LineBasicMaterial({ color: COL.ruleS, transparent: true, opacity: 0.5 });
-var matEdge = new THREE.LineBasicMaterial({ color: COL.line, transparent: true, opacity: 0.85 });
+var matEdge = new THREE.LineBasicMaterial({ color: COL.muted, transparent: true, opacity: 0.72 }); // landmarks: lighter than white, still above the houses (0.45)
 var matEdgeDim = new THREE.LineBasicMaterial({ color: COL.muted, transparent: true, opacity: 0.45 });
 
 // Drafting grid on the ground
@@ -1326,6 +1363,68 @@ LANDMARKS.forEach(function (l) { LMK[l.key] = l; });
   var k = LMK.kirche; blockInto(LFP, LEP, (k.x0 + 12 + k.x1) / 2, (k.z0 + k.z1) / 2, 0, k.x1 - k.x0 - 12, k.z1 - k.z0, 16, 10); tower(k.x0 + 6, (k.z0 + k.z1) / 2, 12, 36, 26);
   ['steindamm', 'sackheim'].forEach(function (key) { var s = LMK[key]; blockInto(LFP, LEP, (s.x0 + 10 + s.x1) / 2, (s.z0 + s.z1) / 2, 0, s.x1 - s.x0 - 10, s.z1 - s.z0, 12, 8); tower(s.x0 + 5, (s.z0 + s.z1) / 2, 10, 28, 18); });
   ['gericht', 'kaemmerei', 'schule', 'uni', 'packhof'].forEach(function (key) { var s = LMK[key]; blockInto(LFP, LEP, (s.x0 + s.x1) / 2, (s.z0 + s.z1) / 2, 0, s.x1 - s.x0, s.z1 - s.z0, key === 'uni' ? 15 : 13, key === 'packhof' ? 9 : 7); });
+})();
+
+// Landmark details: windows, lancets, string courses and belfry openings, drawn as lines on the walls
+(function () {
+  function L(a, b) { LEP.push(a[0], a[1], a[2], b[0], b[1], b[2]); }
+  function Wp(cx, cz, ang, lx, ly, lz) { var ca = Math.cos(ang), sa = Math.sin(ang); return [cx + lx * ca - lz * sa, ly, cz + lx * sa + lz * ca]; }
+  // Openings on all four walls. o: { floors, y0, ww, wh, step, lancet, belts }
+  function walls(cx, cz, ang, w, d, h, o) {
+    var y0 = o.y0 || 0, fl = o.floors || 1, sh = (h - y0) / fl, e = 0.2;
+    var faces = [[w, d / 2 + e, false], [w, -(d / 2 + e), false], [d, w / 2 + e, true], [d, -(w / 2 + e), true]];
+    faces.forEach(function (f) {
+      var len = f[0], off = f[1], side = f[2], n = Math.max(1, Math.floor(len / o.step));
+      function P(u, y) { return side ? Wp(cx, cz, ang, off, y, u) : Wp(cx, cz, ang, u, y, off); }
+      for (var fi = 0; fi < fl; fi++) {
+        var yb = y0 + fi * sh + (sh - o.wh) / 2, yt = yb + o.wh;
+        for (var i = 0; i < n; i++) {
+          var u = -len / 2 + (i + 0.5) * len / n, a = u - o.ww / 2, b = u + o.ww / 2;
+          L(P(a, yb), P(b, yb)); L(P(a, yb), P(a, yt)); L(P(b, yb), P(b, yt));
+          if (o.lancet) { L(P(a, yt), P(u, yt + o.ww * 0.9)); L(P(b, yt), P(u, yt + o.ww * 0.9)); } else L(P(a, yt), P(b, yt));
+        }
+      }
+      (o.belts || []).forEach(function (y) { L(P(-len / 2, y), P(len / 2, y)); });
+    });
+  }
+  function towerDetail(cx, cz, w, h) {
+    walls(cx, cz, 0, w, w, h, { floors: 1, y0: h * 0.78, ww: w * 0.16, wh: h * 0.12, step: w / 2, lancet: true, belts: [h * 0.33, h * 0.55, h * 0.76] });
+    walls(cx, cz, 0, w, w, h * 0.7, { floors: 2, y0: h * 0.1, ww: w * 0.1, wh: h * 0.08, step: w, lancet: false });
+  }
+  var c = LMK.castle, cw = c.x1 - c.x0, cd = c.z1 - c.z0, mx = (c.x0 + c.x1) / 2, mz = (c.z0 + c.z1) / 2;
+  var win = { floors: 3, y0: 1, ww: 1.8, wh: 2.6, step: 6, belts: [6.4, 12.2] };
+  walls(mx, c.z0 + 7, 0, cw, 14, 18, win); walls(mx, c.z1 - 7, 0, cw, 14, 18, win);
+  walls(c.x0 + 7, mz, Math.PI / 2, cd - 28, 14, 18, win); walls(c.x1 - 7, mz, Math.PI / 2, cd - 28, 14, 18, win);
+  towerDetail(c.x0 + 8, c.z1 - 8, 16, 52);
+  var d = LMK.dom; walls((d.x0 + 14 + d.x1) / 2, (d.z0 + d.z1) / 2, 0, d.x1 - d.x0 - 14, d.z1 - d.z0, 20, { floors: 1, y0: 3, ww: 2.6, wh: 10, step: 7, lancet: true, belts: [2.2] }); towerDetail(d.x0 + 7, (d.z0 + d.z1) / 2, 15, 40);
+  var r = LMK.rath; walls((r.x0 + r.x1) / 2, (r.z0 + r.z1) / 2, 0, r.x1 - r.x0, r.z1 - r.z0, 14, { floors: 2, y0: 1, ww: 1.8, wh: 3, step: 5, belts: [7] });
+  var k = LMK.kirche; walls((k.x0 + 12 + k.x1) / 2, (k.z0 + k.z1) / 2, 0, k.x1 - k.x0 - 12, k.z1 - k.z0, 16, { floors: 1, y0: 2.5, ww: 2.4, wh: 8, step: 7, lancet: true, belts: [1.8] }); towerDetail(k.x0 + 6, (k.z0 + k.z1) / 2, 12, 36);
+  ['steindamm', 'sackheim'].forEach(function (key) { var t = LMK[key]; walls((t.x0 + 10 + t.x1) / 2, (t.z0 + t.z1) / 2, 0, t.x1 - t.x0 - 10, t.z1 - t.z0, 12, { floors: 1, y0: 2, ww: 2.2, wh: 6, step: 6.5, lancet: true }); towerDetail(t.x0 + 5, (t.z0 + t.z1) / 2, 10, 28); });
+  ['gericht', 'kaemmerei', 'schule', 'uni', 'packhof'].forEach(function (key) { var t = LMK[key], h = key === 'uni' ? 15 : 13;
+    walls((t.x0 + t.x1) / 2, (t.z0 + t.z1) / 2, 0, t.x1 - t.x0, t.z1 - t.z0, h, key === 'packhof' ? { floors: 2, y0: 0.5, ww: 3.2, wh: 4.2, step: 9, belts: [6.5] } : { floors: 3, y0: 1, ww: 1.6, wh: 2.4, step: 4.5, belts: [h / 3 + 0.3] }); });
+})();
+
+// Speicher: tall half-timbered warehouses on the Lastadie quay (north bank of the Pregel, west of the fork), with hoists and quay cranes
+(function () {
+  function L(a, b) { LEP.push(a[0], a[1], a[2], b[0], b[1], b[2]); }
+  var seed = 1255; function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  var x = -296, k = 0;
+  while (x > -540) {
+    var wx = 10 + rnd() * 3, dz = 16 + rnd() * 4, h = 20 + rnd() * 8, roof = 11 + rnd() * 4;
+    var bank = polyZ(CH[0].pts, x - wx / 2) - CH[0].hw, front = bank - 5, cz = front - dz / 2, cx = x - wx / 2;
+    blockInto(LFP, LEP, cx, cz, Math.PI / 2, dz, wx, h, roof);
+    // Half-timbering on the river gable: storeys, posts, braces, and the stacked loading doors
+    var zf = front + 0.15, x0 = cx - wx / 2, x1 = cx + wx / 2, n = Math.round(h / 4.5), sh = h / n;
+    for (var i = 1; i < n; i++) L([x0, i * sh, zf], [x1, i * sh, zf]);
+    L([cx - wx / 6, 0, zf], [cx - wx / 6, h, zf]); L([cx + wx / 6, 0, zf], [cx + wx / 6, h, zf]);
+    for (i = 0; i < n; i++) { var ya = i * sh, yb = ya + sh; L([x0, i % 2 ? yb : ya, zf], [cx - wx / 6, i % 2 ? ya : yb, zf]); L([x1, i % 2 ? yb : ya, zf], [cx + wx / 6, i % 2 ? ya : yb, zf]); }
+    // Gable storeys and the hoist: a beam out over the quay, with its rope
+    for (i = 1; i < 3; i++) { var gy = h + roof * i / 3, gw = wx / 2 * (1 - i / 3); L([cx - gw, gy, zf], [cx + gw, gy, zf]); }
+    var hy = h + roof * 0.72; L([cx, hy, zf], [cx, hy, zf + 4]); L([cx, hy, zf + 4], [cx, h * 0.35, zf + 4]);
+    // A jib crane on the quay after every second Speicher
+    if (k % 2 === 1) { var qx = x0 - 1.5, qz = bank - 1.5; L([qx, 0, qz], [qx, 15, qz]); L([qx, 13, qz], [qx, 17, qz + 13]); L([qx, 6, qz], [qx, 13.5, qz + 5.5]); L([qx, 17, qz + 13], [qx, 4, qz + 13]); }
+    x -= wx + 2 + rnd() * 3; k++;
+  }
 })();
 
 // Houses along the streets
@@ -1510,7 +1609,7 @@ function frame(now) {
   // City fades back as the graph takes over; it returns faintly behind the vision and mission
   var graphT = smooth(1.55, 2.35, T);
   var city = 1 - graphT * 0.86;
-  M.fill.opacity = city; M.edge.opacity = 0.85 * city; M.edgeDim.opacity = 0.45 * city; M.street.opacity = 0.5 * city;
+  M.fill.opacity = city; M.edge.opacity = 0.72 * city; M.edgeDim.opacity = 0.45 * city; M.street.opacity = 0.5 * city;
   var hiBr = smooth(0.6, 1.2, T) * (1 - smooth(1.9, 2.4, T));
   BR.forEach(function (b) { b.mat.color.set(hiBr > 0.3 ? C.tok(BCOL[b.n]) : COL.line); b.mat.opacity = 1; b.glowMat.opacity = hiBr * 0.22; });
   // Old edges grow from their bridges
@@ -1586,6 +1685,9 @@ function resize() {
   camera.updateProjectionMatrix();
 }
 new ResizeObserver(resize).observe(stage);
+// Height of the last card, for its mobile resting position
+var lastCard = document.querySelector('.h3step--last .h3card');
+if (lastCard) new ResizeObserver(function () { document.documentElement.style.setProperty('--h3last', lastCard.offsetHeight + 'px'); }).observe(lastCard);
 resize(); requestAnimationFrame(frame);
 })();
 
